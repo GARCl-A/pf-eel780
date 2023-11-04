@@ -57,16 +57,70 @@
     width: 800px;
     height: auto;
   }
+
+  a {
+            color: #007BFF;
+            text-decoration: none;
+  }
+
+  /* Tabela de Conteúdos */
+  .toc {
+  background-color: #f5f5f5;
+  padding: 1em;
+  position: fixed;
+  width: 250px;
+  max-height: calc(100% - 40px); /* Ajuste a altura máxima da TOC para evitar sobreposição */
+  overflow-y: auto;
+  }
+
+  .toc h3 {
+      font-size: 1.1em;
+  }
+
+  .toc ul {
+      list-style-type: square;
+      padding-left: 20px;
+  }
+
+  /* CSS para ajustar a margem inferior do main */
+  main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2em;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-top: 20px;
+    margin-bottom: 20px; /* Adicione uma margem inferior igual à altura da TOC */
+  }
 </style>
 </head>
 <body>
 <header>
   <h1>Sistema de Gestão Comercial e Atendimento ao Cliente</h1>
 </header>
-
+<nav class="toc">
+  <!-- Tabela de Conteúdos -->
+  <h2>Índice</h2>
+  <ul>
+      <li><a href="#members">Membros do Grupo</a></li>
+      <li><a href="#customer-relate">Relato do Cliente</a></li>
+      <li><a href="#proposal">Proposta de Sistema</a></li>
+      <li><a href="#value">Valor Entregue</a></li>
+      <li><a href="#canvas">Canvas</a></li>
+      <li><a href="#user-stories">Partes Interessadas e Histórias do Usuário</a></li>
+      <li><a href="#use-cases">Casos de Uso</a></li>
+      <ul>
+          <li><a href="#generate-promotions">Geração de Lista de Clientes e Envio de Promoções</a></li>
+          <li><a href="#customer-registration">Cadastro de Novo Cliente</a></li>
+          <li><a href="#sales">Realização de Venda</a></li>
+          <li><a href="#low-stock-alert">Alerta de Estoque Baixo</a></li>
+      </ul>
+  </ul>
+</nav>
 <main>
-  <section>
-    <h2>Membros do Grupo</h2>
+  <section id="members">
+    <h2>Membros do Grupo </h2>
     <ul>
       <li>Guilherme Amazonas</li>
       <li>Lucas Garcia</li>
@@ -75,7 +129,7 @@
     </ul>
   </section>
 
-  <section>
+  <section id="customer-relate">
     <h2>Relato do Cliente</h2>
     <p>"Tenho uma loja de ração e o sistema que uso atualmente não atende algumas das minhas necessidades.
 
@@ -83,25 +137,163 @@ Gostaria de conseguir gerar uma lista de clientes por algum filtro, como um prod
 </p>
   </section>
 
-  <section>
+  <section id="proposal">
     <h2>Proposta de Sistema</h2>
     <p>Uma solução abrangente para gestão comercial, concentrando-se em um banco de dados central para produtos, categorias, clientes, vendas e estoque. Cadastros detalhados de produtos, que serão harmonizados com informações de clientes para personalização. A integração entre vendas e estoque permitirá análises estratégicas, alertas automáticos evitarão escassez de estoque e interações proativas informarão clientes sobre descontos e produtos em baixa, impulsionando sua eficiência operacional e satisfação do cliente.</p>
   </section>
 
-  <section>
+  <section id="value">
     <h2>Valor Entregue</h2>
     <p>Nosso sistema visa ECONOMIZAR TEMPO e ORGANIZAR. Economiza tempo ao mandar mensagems automaticamente para os clientes e organizar por fazer um filtro.</p>
   </section>
 
-  <section>
+  <section id="canvas">
     <h2>Canvas</h2>
     <img src="canvas1.jpeg" alt="Canvas">
   </section>
 
-  <section>
-    <h2>Planilha</h2>
-    <a href="https://docs.google.com/spreadsheets/d/1FmQmqpPzGItIM6YS37fjdJ53lT6py4hqXeKJUqkn3tU/edit?usp=sharing">Planilha de Partes Interessadas e Histórias do Usuário</a>
+  <section id="user-stories">
+    <h2>Partes Interessadas e Histórias do Usuário</h2>
+    <a href="https://docs.google.com/spreadsheets/d/1FmQmqpPzGItIM6YS37fjdJ53lT6py4hqXeKJUqkn3tU/edit?usp=sharing">Link para a planilha</a>
   </section>
+
+  <section id="use-cases">
+    <h2>Casos de Uso</h2>
+    <section id="generate-promotions">
+      <h3>Geração de Lista de Clientes e Envio de Promoções</h2>
+      <p><strong>Ator Principal:</strong> Dono da loja de ração</p>
+      <p><strong>Descrição:</strong> Este caso de uso permite ao dono da loja de ração gerar uma lista de clientes com base em filtros específicos, como produtos ou categorias de produtos, e enviar promoções para os clientes selecionados.</p>
+    
+      <h4>Fluxo Principal:</h3>
+      <ol>
+        <li>O dono da loja acessa o sistema de gestão comercial.</li>
+        <li>Ele seleciona a opção "Geração de Lista de Clientes e Envio de Promoções".</li>
+        <li>O sistema exibe opções de filtros, como produtos específicos ou categorias de produtos.</li>
+        <li>O dono da loja escolhe os filtros desejados e define os critérios para a seleção de clientes.</li>
+        <li>O sistema gera uma lista de clientes com base nos filtros e critérios selecionados.</li>
+        <li>O dono da loja revisa a lista de clientes gerada.</li>
+        <li>Ele compõe uma mensagem promocional ou seleciona uma promoção existente para enviar.</li>
+        <li>O sistema envia a mensagem promocional para os clientes selecionados através dos números cadastrados.</li>
+        <li>O dono da loja recebe uma confirmação de que as mensagens foram enviadas com sucesso.</li>
+      </ol>
+    
+      <h4>Caminhos Alternativos:</h3>
+      <p>4a- Se o dono da loja não selecionar nenhum filtro.</p>
+      <ol>
+        <li>O sistema gera a lista com todos os clientes cadastrados.</li>
+      </ol>
+    
+      <p>7a- Se o dono da loja desejar não enviar uma mensagem promocional.</p>
+      <ol>
+        <li>O dono da loja clica no botão 'salvar relatório'.</li>
+        <li>O sistema gera um arquivo com a lista de clientes sem enviar para os contatos.</li>
+      </ol>
+    </section>
+    <hr>
+    <section id="customer-registration">
+      <h3>Cadastro de Novo Cliente</h3>
+      <p><strong>Ator Principal:</strong> Atendente da loja de ração</p>
+      <p><strong>Descrição:</strong> Este caso de uso permite ao atendente da loja de ração cadastrar um novo cliente no sistema.</p>
+
+      <h4>Fluxo Principal:</h4>
+      <ol>
+        <li>O atendente acessa o sistema de gestão comercial.</li>
+        <li>Ele seleciona a opção "Cadastro de Novo Cliente".</li>
+        <li>O sistema exibe um formulário de cadastro de cliente.</li>
+        <li>O atendente preenche as informações do cliente, que incluem:</li>
+        <ul>
+          <li>Nome completo</li>
+          <li>Endereço</li>
+          <li>Número de telefone</li>
+          <li>E-mail (opcional)</li>
+          <li>Informações sobre animais de estimação (se aplicável)</li>
+        </ul>
+        <li>O atendente verifica se todas as informações obrigatórias foram preenchidas corretamente.</li>
+        <li>Se todas as informações estiverem corretas, o atendente confirma o cadastro.</li>
+        <li>O sistema armazena as informações do novo cliente no banco de dados.</li>
+        <li>O atendente recebe uma confirmação de que o cliente foi cadastrado com sucesso.</li>
+        <li>O cliente recebe em seu telefone uma mensagem de boas-vindas em seu número de celular.</li>
+      </ol>
+
+      <h4>Caminhos Alternativos:</h4>
+      <p>6a- Se o atendente identificar informações em falta ou incorretas.</p>
+      <ol>
+        <li>O atendente corrigirá os campos necessários e tentará confirmar novamente.</li>
+      </ol>
+
+      <p>7a- Se o sistema encontrar algum erro ao armazenar as informações.</p>
+      <ol>
+        <li>O sistema informará o atendente sobre o problema com a mensagem de erro adequada.</li>
+      </ol>
+
+      <p>8a- Se o sistema já possuir um cliente com o mesmo nome ou número de telefone.</p>
+      <ol>
+        <li>O atendente será notificado com o sistema poderá exibir os clientes duplicados.</li>
+        <li>O atendente verificará se existe uma duplicata do cliente no sistema.</li>
+        <ul>
+          <li>Se sim, o atendente escolherá qual eliminar.</li>
+          <li>Se não, o atendente escolherá manter os dois.</li>
+        </ul>
+      </ol>
+    </section>
+    <hr>
+    <section id="sales">
+      <h3>Realização de Venda</h3>
+      <p><strong>Ator Principal:</strong> Atendente da loja de ração</p>
+      <p><strong>Descrição:</strong> Este caso de uso permite ao atendente da loja de ração registrar uma venda, associando os produtos comprados ao perfil do cliente, a fim de enriquecer o histórico de compras do cliente.</p>
+
+      <h4>Fluxo Principal:</h4>
+      <ol>
+        <li>O atendente acessa o sistema de gestão comercial.</li>
+        <li>Ele seleciona a opção "Realização de Venda".</li>
+        <li>O sistema exibe um formulário de venda, que inclui as seguintes etapas:</li>
+        <ul>
+          <li>Identificação do cliente (pesquisa pelo nome, número de telefone ou código de cliente).</li>
+          <li>Seleção dos produtos a serem vendidos, incluindo quantidade e preço unitário.</li>
+          <li>Cálculo do valor total da venda.</li>
+          <li>Registro da forma de pagamento (dinheiro, cartão de crédito, etc.).</li>
+          <li>Confirmação da venda.</li>
+        </ul>
+        <li>O atendente completa as etapas do formulário de venda.</li>
+        <li>O sistema associa os produtos comprados ao perfil do cliente identificado.</li>
+        <li>O sistema atualiza o estoque de produtos de acordo com a venda realizada.</li>
+        <li>O sistema armazena as informações da venda no banco de dados, incluindo a data e os produtos vendidos.</li>
+        <li>O atendente emite um comprovante da venda para o cliente.</li>
+        <li>O atendente encerra a transação.</li>
+      </ol>
+
+      <h4>Caminhos Alternativos:</h4>
+      <p>3a1- Se o atendente não encontrar o cliente no sistema.</p>
+      <ol>
+        <li>O atendente pode optar por cadastrar um novo cliente ou seguir sem cadastro.</li>
+      </ol>
+
+      <p>5a- Se houver problemas na associação dos produtos ao perfil do cliente, o sistema alertará o atendente com a mensagem de erro adequada.</p>
+
+      <p>6a- Se a venda exceder a quantidade disponível em estoque de algum produto.</p>
+      <ol>
+        <li>O sistema deve notificar o atendente sobre a possível falta de estoque e permitir que ele ajuste a venda.</li>
+      </ol>
+    </section>
+    <hr>
+    <section id="low-stock-alert">
+      <h3>Alerta de Estoque Baixo</h3>
+      <p><strong>Ator Principal:</strong> Sistema</p>
+      <p><strong>Descrição:</strong> Este caso de uso descreve como o sistema identifica automaticamente quando um produto atinge um nível de estoque baixo e notifica o dono da loja sobre a necessidade de reabastecimento.</p>
+
+      <h4>Fluxo Principal:</h4>
+      <ol>
+        <li>O sistema monitora constantemente os níveis de estoque de produtos cadastrados no banco de dados.</li>
+        <li>Em intervalos regulares ou quando uma venda é registrada, o sistema verifica o estoque atual de cada produto.</li>
+        <li>Se o estoque de um produto atingir ou cair abaixo de um limite de estoque baixo predefinido, o sistema gera um alerta.</li>
+        <li>O sistema notifica o dono da loja por meio de um aviso ou mensagem, informando quais produtos têm estoque baixo.</li>
+        <li>O dono da loja recebe a notificação.</li>
+      </ol>
+    </section>
+  </ul>
+  </section>
+  
+  
 </main>
 
 <footer>
